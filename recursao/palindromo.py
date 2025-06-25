@@ -1,7 +1,9 @@
 def verificaPalindromo(palavra, tamanhoPalavra):
-    if tamanhoPalavra == 1:
+    if tamanhoPalavra <= 1:
         return True
-    return ()
+    if palavra[0].lower() != palavra[tamanhoPalavra - 1].lower():
+        return False
+    return verificaPalindromo(palavra[1:tamanhoPalavra - 1], tamanhoPalavra - 2)
 
 
 def palindromo(palavra: str):
@@ -14,4 +16,5 @@ def palindromo(palavra: str):
         
     return True if palavraVerificadaLower == palavraLower else False
 
-print(palindromo('SubiNoOnus'))
+palavra = 'radar'
+print(verificaPalindromo(palavra, len(palavra)))
